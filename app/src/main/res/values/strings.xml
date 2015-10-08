@@ -8,9 +8,9 @@
 
     <string name="play_sound">Play Sound</string>
 
-    <string name="start">Start</string>
-    <string name="pause">Pause</string>
-    <string name="resume">Resume</string>
-    <string name="reset">Reset</string>
-    <string name="lap">Lap</string>
+    <string name="start">开始</string>
+    <string name="pause">暂停</string>
+    <string name="resume">恢复</string>
+    <string name="reset">重置</string>
+    <string name="record">记录</string>
 </resources>
