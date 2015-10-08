@@ -8,7 +8,7 @@ import android.widget.TabHost;
 
 public class MainActivity extends Activity {
 
-    private TabHost tabHost;
+    private static TabHost tabHost;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

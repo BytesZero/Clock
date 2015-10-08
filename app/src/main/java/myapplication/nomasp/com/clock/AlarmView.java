@@ -28,6 +28,8 @@ import java.util.Date;
  */
 public class AlarmView extends LinearLayout{
 
+
+
     private Button btnAddAlarm;
     private ListView lvAlarmList;
     private ArrayAdapter<AlarmData> adapter;
@@ -186,8 +188,18 @@ public class AlarmView extends LinearLayout{
     }
 
     private void deleteAllAlarm(){
-        for(int i = 0; i < adapter.getCount(); i++)
-            adapter.remove(adapter.getItem(i));
+
+        int adapterCount =adapter.getCount();   // 为adapter的个数进行计数
+        AlarmData ad;
+        for(int i = 0; i < adapterCount; i++){
+            ad = adapter.getItem(0);       // 每次从第1个开始移除
+            adapter.remove(ad);
+
+            saveAlarmList();       // 移除后重新保存列表
+
+            alarmManager.cancel(PendingIntent.getBroadcast(getContext(),ad.getId(),
+                    new Intent(getContext(),AlarmReceiver.class),0));   // 取消闹钟的广播
+        }
     }
 
     private static class AlarmData{
